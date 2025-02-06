@@ -12,8 +12,8 @@ const HomeCss = styled.div`
 const HomeBtn = styled.button`
   font-size: 45px;
   font-weight: 600;
-  width: 250px;
-  height: 80px;
+  width: 230px;
+  height: 70px;
   display: flex;
   justify-content: center;
   align-items: center;
