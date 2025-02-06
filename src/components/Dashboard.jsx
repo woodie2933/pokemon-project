@@ -2,33 +2,80 @@ import React from "react";
 import styled from "styled-components";
 
 const DashboardContainer = styled.div`
-  border: 1px solid #f00;
-  background: #f8bf44;
+  border-radius: 15px;
+  background: #fff;
   width: 100%;
-  height: 400px;
+  min-height: 300px;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
+  padding: 20px;
+  margin-bottom: 40px;
+  gap: 15px;
 `;
 
 const DashboardItem = styled.div`
-  border: 1px solid #f00;
+  width: 180px;
+  min-height: 230px;
+  border: 4px dashed #a7a7a7;
+  border-radius: 10px;
   background: #fff;
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
   align-items: center;
+  padding: 15px;
+  cursor: pointer;
+  img {
+    width: 100px;
+    margin-bottom: 15px;
+  }
+  h4 {
+    font-family: "Noto Sans KR", serif;
+    font-weight: 500;
+    margin-bottom: 7px;
+  }
+  p {
+    width: 80px;
+    height: 25px;
+    background: #ffaa2a;
+    border-radius: 12.5px;
+    font-family: "Noto Sans KR", serif;
+    font-size: 13px;
+    font-weight: 500;
+    text-align: center;
+    color: #fff;
+    padding-top: 3px;
+    margin-bottom: 10px;
+  }
 `;
 
-const Dashboard = ({ pickedPokemons }) => {
+const Button = styled.button`
+  width: 90px;
+  min-height: 40px;
+  border: none;
+  border-radius: 10px;
+  background: #ff633c;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 500;
+  transition: all 0.3s;
+  cursor: pointer;
+  &:hover {
+    background: #6e6e6e;
+  }
+`;
+
+const Dashboard = ({ pickedPokemons, removePokemon }) => {
   return (
     <DashboardContainer>
-      <h2>Selected</h2>
       {pickedPokemons.map((pokemon) => (
         <DashboardItem key={pokemon.id}>
           <img src={pokemon.img_url} alt={pokemon.korean_name} />
-          <span>{pokemon.korean_name}</span>
-          <button>REMOVE</button>
+          <h4>{pokemon.korean_name}</h4>
+          <p>{pokemon.types.join(" ")}</p>
+          <Button onClick={() => removePokemon(pokemon.id)}>REMOVE</Button>
         </DashboardItem>
       ))}
     </DashboardContainer>
