@@ -1,7 +1,7 @@
 import React from "react";
 import MOCK_DATA from "../data/MOCK_DATA";
 import styled from "styled-components";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 const DetailContainer = styled.div`
   width: 900px;
@@ -13,9 +13,24 @@ const DetailContainer = styled.div`
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+  position: relative;
   img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 170px;
-    margin-top: 75px;
+    margin-top: 65px;
+  }
+  button {
+    position: absolute;
+    top: 3px;
+    left: 4px;
+    background: none;
+    border: none;
+    font-size: 50px;
+    padding-left: 17px;
+    color: #ffffff;
+    cursor: pointer;
   }
   div {
     background: #fff;
@@ -56,10 +71,13 @@ const DetailContainer = styled.div`
 
 const PokemonDetail = () => {
   const { id } = useParams();
+  const navigate = useNavigate();
+
   const pokemon = MOCK_DATA.find((pokemon) => pokemon.id === Number(id));
 
   return (
     <DetailContainer>
+      <button onClick={() => navigate("/dex")}>×</button>
       <img src={pokemon.img_url} alt={pokemon.korean_name} />
       <div>
         <h1>{pokemon.korean_name}</h1>
