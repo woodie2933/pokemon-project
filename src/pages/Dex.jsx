@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Dashboard from "../components/Dashboard";
 import PokemonList from "../components/PokemonList";
 import MOCK_DATA from "../data/MOCK_DATA";
@@ -22,7 +22,17 @@ const DexCss = styled.div`
 `;
 
 const Dex = () => {
-  const [pickedPokemons, setPickedPokemons] = useState([]);
+  const [pickedPokemons, setPickedPokemons] = useState(() => {
+    const storedPokemons = localStorage.getItem("pickedPokemons");
+    return storedPokemons ? JSON.parse(storedPokemons) : [];
+  });
+
+  // localStoage 추가
+  useEffect(() => {
+    localStorage.setItem("pickedPokemons", JSON.stringify(pickedPokemons));
+  }, [pickedPokemons]);
+
+  console.log(localStorage.getItem("pickedPokemons"));
 
   // Dashboard 에 card 추가 함수
   const addPokemon = (pickedPokemon) => {
