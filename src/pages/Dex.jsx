@@ -29,10 +29,10 @@ const Dex = () => {
 
   // localStoage 추가
   useEffect(() => {
-    localStorage.setItem("pickedPokemons", JSON.stringify(pickedPokemons));
+    if (pickedPokemons.length !== 0) {
+      localStorage.setItem("pickedPokemons", JSON.stringify(pickedPokemons));
+    }
   }, [pickedPokemons]);
-
-  console.log(localStorage.getItem("pickedPokemons"));
 
   // Dashboard 에 card 추가 함수
   const addPokemon = (pickedPokemon) => {
@@ -46,7 +46,7 @@ const Dex = () => {
     }
 
     if (pickedPokemons.length < 6) {
-      setPickedPokemons([...pickedPokemons, pickedPokemon]);
+      setPickedPokemons((prev) => [...prev, pickedPokemon]);
     } else {
       alert("포켓몬은 최대 6마리까지 선택할 수 있습니다.");
     }
@@ -54,7 +54,7 @@ const Dex = () => {
 
   // Dashboard 에서 card 삭제 함수
   const removePokemon = (id) => {
-    setPickedPokemons(pickedPokemons.filter((pokemon) => pokemon.id !== id));
+    setPickedPokemons((prev) => prev.filter((pokemon) => pokemon.id !== id));
   };
 
   return (
