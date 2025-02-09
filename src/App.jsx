@@ -1,8 +1,14 @@
 import React from "react";
-import "./App.css";
+import Router from "./shared/Router";
+import GlobalStyle from "./style/GlobalStyle";
 
 const App = () => {
-  return <div>Pokemon</div>;
+  return (
+    <>
+      <GlobalStyle />
+      <Router />
+    </>
+  );
 };
 
 export default App;
