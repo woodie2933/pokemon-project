@@ -15,24 +15,27 @@ const Card = styled.div`
   cursor: pointer;
   img {
     width: 100px;
-    margin-bottom: 15px;
+    border-radius: 50px;
+    background: #ebebeb;
+    margin-bottom: 10px;
   }
   h4 {
+    font-size: 15px;
     font-family: "Noto Sans KR", serif;
-    font-weight: 500;
-    margin-bottom: 7px;
+    font-weight: 600;
+    color: #4e4e4e;
+    margin-bottom: 10px;
   }
   p {
-    width: 80px;
-    height: 25px;
-    background: #ffaa2a;
-    border-radius: 12.5px;
+    width: 100%;
+    height: 23px;
+    background: #ffb74b;
     font-family: "Noto Sans KR", serif;
     font-size: 13px;
     font-weight: 500;
     text-align: center;
     color: #fff;
-    padding-top: 3px;
+    padding-top: 2px;
     margin-bottom: 10px;
   }
   &:hover {
@@ -42,26 +45,39 @@ const Card = styled.div`
 `;
 
 const Button = styled.button`
-  width: 70px;
-  height: 40px;
+  font-family: "Montserrat", serif;
+  width: 65px;
+  height: 35px;
   border: none;
   border-radius: 10px;
-  background: #4763ff;
+  background: #ff704c;
   color: #fff;
   font-size: 15px;
-  font-weight: 500;
+  font-weight: 600;
   transition: all 0.3s;
   cursor: pointer;
   &:hover {
-    background: #505050;
+    background: #6e6e6e;
   }
 `;
 
-const PokemonCard = ({ data, addPokemon }) => {
+const PokemonCard = ({ pokemonData, addPokemon }) => {
   const navigate = useNavigate();
 
   return (
-    <Card onClick={() => navigate(`/detail/${pokemon.id}`)}>PokemonList</Card>
+    <Card onClick={() => navigate(`/detail/${pokemonData.id}`)}>
+      <img src={pokemonData.img_url} alt={pokemonData.korean_name} />
+      <h4>{pokemonData.korean_name}</h4>
+      <p>{pokemonData.types.join(", ")}</p>
+      <Button
+        onClick={(e) => {
+          e.stopPropagation();
+          addPokemon(pokemonData);
+        }}
+      >
+        ADD
+      </Button>
+    </Card>
   );
 };
 

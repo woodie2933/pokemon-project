@@ -8,13 +8,13 @@ const GridContainer = styled.div`
   gap: 17px;
 `;
 
-const PokemonList = ({ data, addPokemon }) => {
+const PokemonList = ({ pokemonData, addPokemon }) => {
   return (
     <GridContainer>
-      {data.map((목데이터포켓몬) => (
+      {pokemonData.map((pokemonData) => (
         <PokemonCard
-          key={PokemonCard.id}
-          pokemon={목데이터포켓몬}
+          key={pokemonData.id}
+          pokemonData={pokemonData}
           addPokemon={addPokemon}
         />
       ))}
