@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
+import { PokemonContext } from "../contexts/PokemonContext";
 
 const DashboardContainer = styled.div`
   border-radius: 15px;
@@ -86,7 +87,9 @@ const Button = styled.button`
   }
 `;
 
-const Dashboard = ({ selectedPokemons, removePokemon }) => {
+const Dashboard = () => {
+  const { selectedPokemons, removePokemon } = useContext(PokemonContext);
+
   const slots = [
     ...selectedPokemons,
     ...Array(6 - selectedPokemons.length).fill(null),

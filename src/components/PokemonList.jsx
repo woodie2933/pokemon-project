@@ -1,6 +1,7 @@
-import React from "react";
-import styled from "styled-components";
+import React, { useContext } from "react";
+import { PokemonContext } from "../contexts/PokemonContext";
 import PokemonCard from "./PokemonCard";
+import styled from "styled-components";
 
 const GridContainer = styled.div`
   display: grid;
@@ -8,13 +9,15 @@ const GridContainer = styled.div`
   gap: 17px;
 `;
 
-const PokemonList = ({ pokemonData, addPokemon }) => {
+const PokemonList = () => {
+  const { MOCK_DATA, addPokemon } = useContext(PokemonContext);
+
   return (
     <GridContainer>
-      {pokemonData.map((pokemonData) => (
+      {MOCK_DATA.map((pokemon) => (
         <PokemonCard
-          key={pokemonData.id}
-          pokemonData={pokemonData}
+          key={pokemon.id}
+          pokemonData={pokemon}
           addPokemon={addPokemon}
         />
       ))}

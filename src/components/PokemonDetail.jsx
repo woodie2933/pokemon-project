@@ -1,5 +1,5 @@
-import React from "react";
-import MOCK_DATA from "../data/MOCK_DATA";
+import React, { useContext } from "react";
+import { PokemonContext } from "../contexts/PokemonContext";
 import { useNavigate, useParams } from "react-router-dom";
 import styled from "styled-components";
 
@@ -78,6 +78,7 @@ const DetailCard = styled.div`
 `;
 
 const PokemonDetail = () => {
+  const { MOCK_DATA } = useContext(PokemonContext);
   const { id } = useParams();
   const navigate = useNavigate();
 
