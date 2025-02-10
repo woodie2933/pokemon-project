@@ -1,5 +1,7 @@
 import React, { createContext, useState, useEffect } from "react";
 import MOCK_DATA from "../data/MOCK_DATA";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 // Context 생성
 export const PokemonContext = createContext();
@@ -28,7 +30,7 @@ export const PokemonProvider = ({ children }) => {
 
     // 중복 선택 방지
     if (added) {
-      alert("이미 선택된 포켓몬입니다.");
+      toast.info("이미 선택된 포켓몬입니다.");
       return;
     }
 
@@ -36,8 +38,9 @@ export const PokemonProvider = ({ children }) => {
     if (selectedPokemons.length < 6) {
       setSelectedPokemons((prev) => [...prev, selectedPokemon]);
     } else {
-      alert("포켓몬은 최대 6마리까지 선택할 수 있습니다.");
+      toast.warn("포켓몬은 최대 6마리까지 선택할 수 있습니다.");
     }
+    toast.success(`포켓몬이 추가되었습니다.`);
   };
 
   // 포켓몬 삭제
@@ -45,6 +48,7 @@ export const PokemonProvider = ({ children }) => {
     setSelectedPokemons((prev) =>
       prev.filter((ondeletePokemon) => ondeletePokemon.id !== onboardPokemon)
     );
+    toast.error(`포켓몬이 삭제되었습니다.`);
   };
 
   return (
@@ -52,6 +56,11 @@ export const PokemonProvider = ({ children }) => {
       value={{ selectedPokemons, addPokemon, removePokemon, MOCK_DATA }}
     >
       {children}
+      <ToastContainer
+        position="top-right"
+        autoClose={1500}
+        hideProgressBar={true}
+      />
     </PokemonContext.Provider>
   );
 };
