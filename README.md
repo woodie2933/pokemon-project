@@ -1,14 +1,24 @@
 <!-- ####### 헤더 -->
 
-# :notebook_with_decorative_cover: Pokemon
-
-https://github.com/woodie2933/pokemon-project.git
+# :notebook_with_decorative_cover: Pokemon Project
 
 <br/>
 
-Choose your own Pokemon Squad !!
+## [ Choose your own Pokemon Squad !! ]
 
-- 포켓몬 카드 덱에 원하는 포켓몬을 골라 저장할 수 있는 포켓몬 도감 프로젝트입니다.
+포켓몬 카드 덱에 원하는 포켓몬을 골라 저장할 수 있는 포켓몬 도감 프로젝트입니다.
+
+<br/>
+
+## :paperclip: Git Address
+
+https://github.com/woodie2933/pokemon-project.git
+
+## :paperclip: 배포 URL
+
+https://pokemon-project-five-beta.vercel.app/
+
+<br/>
 
 <br/>
 
@@ -24,7 +34,7 @@ Choose your own Pokemon Squad !!
 
 ### :heavy_check_mark: **Development Period**
 
-2025/02/04 ~ 2025/02/11
+#### 2025/02/04 ~ 2025/02/11
 
 <br/>
 <!-- 테크 스택 -->
