@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import styled from "styled-components";
 import { PokemonContext } from "../contexts/PokemonContext";
+import Pokeball from "../image/Pokebola-pokeball-png-0.png";
 
 const DashboardContainer = styled.div`
   border-radius: 15px;
@@ -119,10 +120,7 @@ const Dashboard = () => {
           </DashboardItem>
         ) : (
           <DashboardSlot key={index + "slot"}>
-            <img
-              src="https://upload.wikimedia.org/wikipedia/commons/5/51/Pokebola-pokeball-png-0.png"
-              alt="slotImage"
-            />
+            <img src={Pokeball} alt="slotImage" />
           </DashboardSlot>
         )
       )}

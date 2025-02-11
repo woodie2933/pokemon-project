@@ -1,6 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
+import Logo from "../image/International_Pokémon_logo.svg.png";
 
 const HomeCss = styled.div`
   width: 100%;
@@ -36,10 +37,7 @@ const Home = () => {
 
   return (
     <HomeCss>
-      <img
-        src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/International_Pok%C3%A9mon_logo.svg/1200px-International_Pok%C3%A9mon_logo.svg.png"
-        alt="homeImg"
-      />
+      <img src={Logo} alt="homeImg" />
       <HomeBtn
         onClick={() => {
           navigate("/dex");
