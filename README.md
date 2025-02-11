@@ -1,13 +1,21 @@
 <!-- ####### 헤더 -->
 
+<!-- 제목 -->
+
 # :notebook_with_decorative_cover: Pokemon Project
 
 <br/>
+<br/>
+
+<!-- ####### 프로젝트 소개 -->
+
+## :microphone: Project Introduction
 
 ## [ Choose your own Pokemon Squad !! ]
 
 포켓몬 카드 덱에 원하는 포켓몬을 골라 저장할 수 있는 포켓몬 도감 프로젝트입니다.
 
+<br/>
 <br/>
 
 ## :paperclip: Git Address
@@ -19,14 +27,6 @@ https://github.com/woodie2933/pokemon-project.git
 https://pokemon-project-five-beta.vercel.app/
 
 <br/>
-
-<br/>
-
-<!-- ####### 프로젝트 소개 -->
-
-<!-- 제목 -->
-
-## :microphone: Project Introduction
 
 <br/>
 
